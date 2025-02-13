@@ -61,6 +61,11 @@ export default function NavbarComponent() {
                   About
                 </Navbar.Link>
               </Link>
+              <Link to="/askingai">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
+               Asking AI
+                </Navbar.Link>
+              </Link>
             </div>
           </Navbar.Collapse>
 

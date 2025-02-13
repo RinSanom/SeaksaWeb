@@ -1,5 +1,5 @@
 import "./App.css";
-import HomePages from "./pages/view/HomePages";
+import HomePages from "./pages/view/HomePages.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CoursesPage from "./pages/view/CoursesPage.jsx";
 import AboutUsPage from "./pages/view/AboutUsPage.jsx";
@@ -12,6 +12,7 @@ import Resgister from "./components/auth/Resgister.jsx";
 import { OTP } from "./components/auth/OTP.jsx";
 import LoginForm from "./components/auth/LoginForm.jsx";
 import MyLearningPage from "./pages/view/MyLearning.jsx";
+import AskingAi from "./pages/view/AskingAi.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         element: <AboutUsPage />,
       },
       {
+        path: "/askingai",
+        element: <AskingAi />,
+      },
+      {
         path: "/detailpage/:id",
         element: <DetailPage />,
       },
@@ -56,7 +61,7 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginForm />,
-  },
+},    
   {
     path: "/admin",
     element: <Root />,
