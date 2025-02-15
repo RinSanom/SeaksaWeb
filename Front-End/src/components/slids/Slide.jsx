@@ -52,12 +52,8 @@ export function Slide() {
       <div className="px-4 sm:px-10 md:px-20 lg:px-32 xl:px-[190px] h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel
           slideInterval={2000}
-          leftControl={
-            <AiFillCaretLeft className="text-4xl text-gray-600 dark:text-gray-300 border-2 border-gray-600 dark:border-gray-300 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-700" />
-          }
-          rightControl={
-            <AiFillCaretRight className="text-4xl text-gray-600 dark:text-gray-300 border-2 border-gray-600 dark:border-gray-300 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-700" />
-          }
+          leftControl={" "}
+          rightControl={" "}
           className=" ">
           {MorkUpData.map((course) => (
             <Link key={course.id} to={`/detailpage/${course.id}`}>
@@ -80,7 +76,7 @@ export function Slide() {
                       </p>
                       <p className="mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                         Created by{" "}
-                        <a className="text-primary underline">RinSanom</a>
+                        <a className="text-primary underline">Rin Sanom</a>
                       </p>
                       <div className="flex items-center gap-2 mt-3 sm:mt-4">
                         <FaVideo
