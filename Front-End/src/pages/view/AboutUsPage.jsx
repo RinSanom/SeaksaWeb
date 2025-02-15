@@ -119,7 +119,7 @@ export default function AboutUsPage() {
           <IconCloud images={images} />
         </div>
       </section>
-      <section></section>
+
       <section>
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <img
@@ -193,7 +193,7 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
-      <main className="w-full px-4 py-16 sm:px-6 lg:px-36">
+      <main className="w-full px-4 py-16 sm:px-6 lg:px-36 dark:text-textDark ">
         {/* Features Section */}
         <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -337,7 +337,9 @@ export default function AboutUsPage() {
                       <div className="size-8 rounded-full bg-yellow-400 flex items-center justify-center text-white">
                         ★
                       </div>
-                      <span className="font-semibold">GradeBook</span>
+                      <span className="font-semibold dark:text-black">
+                        GradeBook
+                      </span>
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -358,7 +360,9 @@ export default function AboutUsPage() {
                         img: "../src/assets/member/neth.png",
                       },
                     ].map((student, i) => (
-                      <div key={i} className="flex items-center gap-4">
+                      <div
+                        key={i}
+                        className="flex items-center gap-4 dark:text-black">
                         {student.img && (
                           <img
                             src={student.img}

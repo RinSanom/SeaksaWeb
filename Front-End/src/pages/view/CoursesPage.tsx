@@ -9,6 +9,7 @@ import { FaStar } from "react-icons/fa";
 import Avatar from "@mui/material/Avatar";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
+import { Slide } from "../../components/slids/Slide.jsx";
 
 ///
 type InstructorCardProps = {
@@ -95,7 +96,6 @@ const TabContents = ({
         ))}
       </div>
 
-      <CourseCarouselSection />
       <PopularInstructorSection data={data} />
 
       <Prevers
@@ -124,64 +124,6 @@ const TabSection = () => {
         <TabContents id={3} Label="Trending" Courses={coursesData.Trending} />
       </Tab>
     </Tabs>
-  );
-};
-
-const CourseCarouselSection = () => {
-  const [ref] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      perView: 1,
-      spacing: 10,
-    },
-    loop: true,
-    drag: false,
-
-    created(s) {
-      setInterval(() => {
-        s.prev();
-      }, 4000);
-    },
-  });
-  const CourseItem = ({
-    CourseTitle,
-    CourseImgSrc,
-    CourseDescription,
-  }: {
-    CourseTitle?: string;
-    CourseImgSrc: string;
-    CourseDescription?: string;
-  }) => {
-    return (
-      <div className="flex gap-5 items-start">
-        <figure className="w-[20rem]">
-          <img src={CourseImgSrc} alt="#" />
-        </figure>
-        <div>
-          <p className="font-bold text-xl">
-            {CourseTitle ? CourseTitle : "Course Title"}
-          </p>
-          <p className="text-xl">
-            {CourseDescription
-              ? CourseDescription
-              : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptate."}
-          </p>
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <div ref={ref} className="keen-slider border-2 rounded-lg p-2 my-2">
-      <div className="keen-slider__slide">
-        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
-      </div>
-      <div className="keen-slider__slide">
-        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
-      </div>
-      <div className="keen-slider__slide">
-        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
-      </div>
-    </div>
   );
 };
 
@@ -214,30 +156,32 @@ const PopularInstructorSection = ({
     numberOfCourses,
   }: InstructorCardProps) => {
     return (
-      <div className="keen-slider__slide flex gap-3 items-start border-2 p-4 rounded-lg h-fit w-fit">
-        <Avatar
-          alt="Remy Sharp"
-          src={imageSrc}
-          sx={{ width: 72, height: 72 }}
-        />
-        <div className="text-wrap">
-          <p className="font-bold text-2xl md:text-xl sm:text-md">
-            {courseTitle}
-          </p>
-          <p className="text-xl md:text-md sm:text-sm lg:text-lg">
-            {tags.map((item) => item)}
-          </p>
-          <div>
-            <div className="flex gap-1 items-center">
-              <p>{rating}</p>
-              <FaStar className="text-orange-400" />
-              <p className="text-yellow-300">Instructor Rating</p>
+      <>
+        <div className="keen-slider__slide flex gap-3 items-start border-2 p-4 rounded-lg h-fit w-fit">
+          <Avatar
+            alt="Remy Sharp"
+            src={imageSrc}
+            sx={{ width: 72, height: 72 }}
+          />
+          <div className="text-wrap">
+            <p className="font-bold text-2xl md:text-xl sm:text-md">
+              {courseTitle}
+            </p>
+            <p className="text-xl md:text-md sm:text-sm lg:text-lg">
+              {tags.map((item) => item)}
+            </p>
+            <div>
+              <div className="flex gap-1 items-center">
+                <p>{rating}</p>
+                <FaStar className="text-orange-400" />
+                <p className="text-yellow-300">Instructor Rating</p>
+              </div>
+              <p>{numberOfStudents} students</p>
+              <p>{numberOfCourses} courses</p>
             </div>
-            <p>{numberOfStudents} students</p>
-            <p>{numberOfCourses} courses</p>
           </div>
         </div>
-      </div>
+      </>
     );
   };
 
@@ -252,7 +196,7 @@ const PopularInstructorSection = ({
 
 export default function CoursesPage() {
   return (
-    <section className="w-[80%] mx-auto">
+    <section className="w-[80%] mx-auto dark:text-white">
       <div className="flex flex-col gap-5 my-6">
         <p className="font-bold text-4xl">Development Courses</p>
         <div>
